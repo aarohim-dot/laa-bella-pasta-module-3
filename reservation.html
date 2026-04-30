@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Reservation - La Pasta Bella</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: url('restaurant-bg.png') no-repeat center center fixed; /* replace with your actual photo */
+      background-size: cover;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .overlay {
+      background: rgba(0,0,0,0.7);
+      padding: 40px;
+      border-radius: 15px;
+      width: 400px;
+      box-shadow: 0 0 25px rgba(255,255,255,0.6);
+      text-align: center;
+    }
+    h1 {
+      font-size: 2em;
+      margin-bottom: 20px;
+      text-shadow: 0 0 15px rgba(255,255,255,0.8);
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    input, select, textarea {
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1em;
+      outline: none;
+      transition: box-shadow 0.3s;
+    }
+    input:focus, select:focus, textarea:focus {
+      box-shadow: 0 0 10px rgba(255,255,255,0.7);
+    }
+    button {
+      padding: 15px;
+      border: none;
+      border-radius: 30px;
+      background: #f5c542;
+      color: #000;
+      font-weight: bold;
+      font-size: 1.1em;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background: #d4af37;
+      box-shadow: 0 0 20px rgba(255,255,255,0.9);
+      transform: scale(1.05);
+    }
+    .thankyou {
+      display: none;
+      margin-top: 20px;
+      font-size: 1.2em;
+      color: #f5c542;
+      text-shadow: 0 0 10px rgba(255,255,255,0.8);
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay">
+    <h1>Reserve Your Table</h1>
+    <form id="reservationForm">
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Email Address" required>
+      <input type="tel" placeholder="Phone Number" required>
+      <input type="date" required>
+      <input type="time" required>
+      <select required>
+        <option value="">Number of Guests</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5+</option>
+      </select>
+      <textarea rows="3" placeholder="Special Requests"></textarea>
+      <button type="submit">Book Now</button>
+    </form>
+    <div class="thankyou">✅ Thank you! Your reservation has been received.</div>
+  </div>
+
+  <script>
+    const form = document.getElementById('reservationForm');
+    const thankyou = document.querySelector('.thankyou');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault(); // prevent page reload
+      form.style.display = 'none'; // hide the form
+      thankyou.style.display = 'block'; // show thank you message
+    });
+  </script>
+</body>
+</html>
